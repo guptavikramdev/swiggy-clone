@@ -1,25 +1,23 @@
 import React from "react";
 import Carousel from "./carousel/Carousel";
 import Skeleton from "./Skeleton";
-
+import Title from "./common/Title"
 const FoodItems = ({ foodItems }) => {
+ 
   return (
-    <>
+    <div className="mt-8">
       {foodItems.length == 0 ? (
-        <Skeleton size={3} />
+        <Skeleton size={9}  w="w-40" h="h-40" rounded="rounded-full" />
       ) : (
         <>
-          <h3 className="font-Poppins text-2xl mb-5 font-black">
-            Best offers for you
-          </h3>
-          <Carousel slides={9}>
+          <Title text="What's on your mind?" />
+          <Carousel slides={8.5}>
             {foodItems.map((items) => {
               return (
-                <div>
+                <div className="w-48 h-48" key={items.imageId}>
                   <img
                     src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/${items.imageId}`}
-                    key={items.imageId}
-                    className=" bg-transparent space-x-4"
+                    className=" w-full h-full"
                   />
                 </div>
               );
@@ -27,7 +25,7 @@ const FoodItems = ({ foodItems }) => {
           </Carousel>
         </>
       )}
-    </>
+    </div>
   );
 };
 

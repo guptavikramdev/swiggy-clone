@@ -4,8 +4,8 @@ const Carousel=({children,slides})=> {
   
     const settings = {
       speed: 500,
-      slidesToShow: `${slides}.2`,
-      slidesToScroll: 1,
+      slidesToShow: `${slides}`,
+      slidesToScroll: 2,
       initialSlide: 0,
       dots: false,
       infinite: false,

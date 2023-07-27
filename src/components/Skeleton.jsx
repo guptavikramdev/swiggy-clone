@@ -1,5 +1,5 @@
 import React from "react";
-const Skeleton=({ size })=> {
+const Skeleton=({ size ,w,h ,rounded=""})=> {
   return (
     <>
     <h3 className="w-96 h-8 mb-5 bg-slate-100 dark:bg-slate-800 rounded-3xl"></h3>
@@ -8,7 +8,7 @@ const Skeleton=({ size })=> {
       {Array(size)
         .fill()
         .map((item, index) => {
-          return (<div className="w-1/3 h-64 bg-slate-100 dark:bg-slate-800 rounded-3xl" key={index}></div>);
+          return (<div className={`${w} ${h} ${rounded} bg-slate-100 dark:bg-slate-800 `} key={index}></div>);
         })}
     </div>
     </>
