@@ -1,0 +1,14 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.slick-slide>div {
+    margin-right:10px;
+}
+
+.slick-track{
+    width: 100% !important;
+}
+
