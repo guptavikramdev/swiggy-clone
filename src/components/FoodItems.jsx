@@ -1,15 +1,10 @@
 import React from "react";
 import Carousel from "./carousel/Carousel";
-import Skeleton from "./Skeleton";
 import Title from "./common/Title"
 const FoodItems = ({ foodItems }) => {
  
   return (
     <div className="mt-8">
-      {foodItems.length == 0 ? (
-        <Skeleton size={9}  w="w-40" h="h-40" rounded="rounded-full" />
-      ) : (
-        <>
           <Title text="What's on your mind?" />
           <Carousel slides={8.5}>
             {foodItems.map((items) => {
@@ -23,8 +18,6 @@ const FoodItems = ({ foodItems }) => {
               );
             })}
           </Carousel>
-        </>
-      )}
     </div>
   );
 };
