@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel src/index.html",
+    "build": "parcel build",
     "test": "jest"
   },
   "repository": {
