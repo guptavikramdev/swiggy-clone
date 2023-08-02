@@ -4,23 +4,23 @@ import {
   BestOffers,
   FoodItems,
   BestBrand,
+  RestaurantList,
   Footer,
   Skeleton,
 } from "./components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { API_BASE_URL } from "./utils/constant";
 export default App = () => {
   const [bestOffers, setBestOffers] = useState([]);
   const [foodItems, setFoodItems] = useState([]);
   const [bestBrands, setBestBrands] = useState([]);
+  const [resList, setResList] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6083697&lng=77.293112&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const response = await fetch(API_BASE_URL);
     const ressults = await response.json();
     setBestOffers(ressults?.data?.cards[0]?.card?.card?.imageGridCards?.info);
     setFoodItems(ressults?.data?.cards[1]?.card?.card?.imageGridCards?.info);
@@ -28,14 +28,14 @@ export default App = () => {
       ressults?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    console.log(ressults?.data?.cards[1]?.card?.card?.imageGridCards?.info);
+    setResList(ressults?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+);
   };
 
   return (
-    <>
-      <div className=" dark:bg-slate-900 dark:text-slate-300 w-full h-screen font-Poppins">
+      <div className=" dark:bg-slate-900 dark:text-slate-300 w-full h-full  font-Poppins">
         <Header />
-        <div className="container m-auto mt-14">
+        <div className="container m-auto pt-24">
           {bestOffers.length == 0 ? (
             <Skeleton size={3} w="w-1/3" h="h-64" rounded="rounded-3xl" />
           ) : (
@@ -51,9 +51,13 @@ export default App = () => {
           ) : (
             <BestBrand bestBrands={bestBrands} />
           )}
+           {resList.length == 0 ? (
+            <Skeleton size={5} w="w-1/3" h="h-64" rounded="rounded-3xl" />
+          ) : (
+            <RestaurantList resList={resList} />
+          )}
         </div>
         <Footer />
       </div>
-    </>
   );
 };

@@ -9,6 +9,23 @@ const Carousel=({children,slides})=> {
       initialSlide: 0,
       dots: false,
       infinite: false,
+       responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 0
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
   return (
     <>
