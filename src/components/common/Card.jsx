@@ -15,7 +15,7 @@ const Card = ({ imgUrl, resName, avgRating, cuisines, areaName }) => {
       <div className="ml-2 dark:text-slate-400 truncate">
         {cuisines.join(",")}
       </div>
-      <div></div>
+      <div className="ml-2 dark:text-slate-400 truncate">{areaName}</div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from "react-slick";
-const Carousel=({children,slides})=> {
+const Carousel=({children,slides,isFoodCarousel=false})=> {
   
     const settings = {
       speed: 500,
@@ -13,7 +13,7 @@ const Carousel=({children,slides})=> {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: `${ isFoodCarousel ? 2.5:1 }`,
             slidesToScroll: 1,
             initialSlide: 0
           }
@@ -21,7 +21,7 @@ const Carousel=({children,slides})=> {
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: `${ isFoodCarousel ? 2.5:1 }`,
             slidesToScroll: 1
           }
         }

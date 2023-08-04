@@ -7,4 +7,6 @@
 .slick-slide>div {
     margin-right:10px;
 }
-
+.slick-track{
+    margin-left: 0 !important;
+}

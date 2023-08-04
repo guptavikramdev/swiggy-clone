@@ -5,7 +5,7 @@ const FoodItems = ({ foodItems }) => {
   return (
     <div className="mt-8">
       <Title text="What's on your mind?" />
-      <Carousel slides={8.5}>
+      <Carousel slides={8.5} isFoodCarousel="true">
         {foodItems.map((items) => {
           return (
             <div className="w-48 h-48" key={items.imageId}>

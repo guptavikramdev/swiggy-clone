@@ -7,7 +7,6 @@ const RestaurantList = ({resList}) => {
      <Title />
      <div className='lg:grid lg:grid-cols-4 lg:gap-8 grid grid-cols-1 px-4'>
          {
-        
         resList.map((res) =>{
             const resInfo = {
             resName: res?.info?.name,
