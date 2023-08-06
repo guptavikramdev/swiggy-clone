@@ -7,12 +7,14 @@ const Card = ({ imgUrl, resName, avgRating, cuisines, areaName }) => {
         className="lg:w-[300px] w-full h-[200px] object-cover rounded-2xl"
         imgUrl={imgUrl}
       />
-      <div className="ml-2 mt-2 text-lg font-black truncate">
-        {resName}
-      </div>
+      <div className="ml-2 mt-2 text-lg font-black truncate">{resName}</div>
       <div className="ml-2">{avgRating}</div>
-      <div className="ml-2 dark:text-slate-400 truncate">{cuisines.join(",")}</div>
-      <div className="ml-2 dark:text-slate-400 truncate">{areaName}</div>
+      <div className="ml-2 dark:text-slate-400 truncate text-slate-600 ">
+        {cuisines.join(",")}
+      </div>
+      <div className="ml-2 dark:text-slate-400 truncate text-slate-600 ">
+        {areaName}
+      </div>
     </div>
   );
 };

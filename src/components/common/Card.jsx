@@ -12,10 +12,12 @@ const Card = ({ imgUrl, resName, avgRating, cuisines, areaName }) => {
 
       <div className="ml-2 mt-2 text-lg font-black truncate">{resName}</div>
       <div className="ml-2">{avgRating}</div>
-      <div className="ml-2 dark:text-slate-400 truncate">
+      <div className="ml-2 dark:text-slate-400  text-slate-600 truncate">
         {cuisines.join(",")}
       </div>
-      <div className="ml-2 dark:text-slate-400 truncate">{areaName}</div>
+      <div className="ml-2 dark:text-slate-400 text-slate-600 truncate">
+        {areaName}
+      </div>
     </div>
   );
 };

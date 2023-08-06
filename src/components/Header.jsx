@@ -9,7 +9,7 @@ const Header = () => {
           <Link to="/"><img src={logo} alt="logo" className="w-24" /></Link>
           
         </div>
-        <ul className="flex gap-10 text-lg tracking-wider">
+        <ul className="flex gap-10 text-lg font-semibold tracking-wider">
           <li><Link to="/search">Search</Link></li>
           <li><Link to="/offers">Offers</Link></li>
           <li><Link to="/help">Help</Link></li>
