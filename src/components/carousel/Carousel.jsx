@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import { Title } from "../common";
 import { LeftArrowShortIcon, RightArrowShortIcon } from "../svgIcons";
-const Carousel = ({ children, slides, isFoodCarousel = false ,title=""}) => {
+const Carousel = ({ children, slides, isFoodCarousel = false, title = "" }) => {
   const [sliderRef, setSliderRef] = useState(null);
   const settings = {
     speed: 1000,
@@ -14,7 +14,15 @@ const Carousel = ({ children, slides, isFoodCarousel = false ,title=""}) => {
     infinite: false,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 768,
+        settings: {
+          slidesToShow: `${isFoodCarousel ? 2.5 : 1}`,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 648,
         settings: {
           slidesToShow: `${isFoodCarousel ? 2.5 : 1}`,
           slidesToScroll: 1,

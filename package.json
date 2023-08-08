@@ -6,16 +6,8 @@
     "build": "parcel build src/index.html",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/myselfvikramgupta/namste-react.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/myselfvikramgupta/namste-react/issues"
-  },
-  "homepage": "https://github.com/myselfvikramgupta/namste-react#readme",
   "devDependencies": {
     "cssnano": "^6.0.1",
     "parcel": "^2.9.3",
@@ -30,5 +22,17 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
-  "description": "Swiggy Clone"
+  "description": "Swiggy Clone",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
