@@ -4,7 +4,7 @@ export default App = () => {
   return (
     <div className=" dark:bg-slate-900 dark:text-slate-300 w-full h-full  font-Poppins">
       <Header />
-      <div className="container m-auto pt-24 lg:pl-0 pl-[10px]">
+      <div className="container m-auto pt-24 pl-5 pr-5">
         <Outlet />
       </div>
       <Footer />
