@@ -2,7 +2,6 @@ import React from "react";
 import Carousel from "./carousel/Carousel";
 import { CarouselCard, Devider } from "./common";
 const BestBrand = ({ bestBrands }) => {
-  console.log(bestBrands);
   return (
     <>
       <Devider />

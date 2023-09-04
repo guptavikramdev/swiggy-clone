@@ -5,3 +5,6 @@ export { default as OffersIcon } from "./OffersIcon";
 export { default as SearchIcon } from "./SearchIcon";
 export { default as SignInIcon } from "./SignInIcon";
 export { default as StarIcon } from "./StarIcon";
+export { default as Chevrondown } from "./Chevrondown";
+export { default as VegIcon } from "./VegIcon";
+export { default as NonVegIcon } from "./NonVegIcon";

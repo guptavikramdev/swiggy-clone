@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Home, Help, Offers, Search } from "./pages";
+import { Home, Help, Offers, Search, Error, Menu } from "./pages";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/offers",
         element: <Offers />,
+      },
+      {
+        path: "/menu/:id",
+        element: <Menu />,
       },
     ],
     errorElement: <Error />,

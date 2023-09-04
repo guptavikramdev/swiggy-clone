@@ -16,7 +16,7 @@ const Header = () => {
             <SearchIcon className="group-hover:fill-orange-500 duration-500" />
             <Link
               to="/search"
-              className="hover:text-primary-color duration-500"
+              className="group-hover:text-primary-color duration-500"
             >
               Search
             </Link>
@@ -25,7 +25,7 @@ const Header = () => {
             <OffersIcon className="group-hover:fill-orange-500 duration-500" />
             <Link
               to="/offers"
-              className="hover:text-primary-color duration-500"
+              className="group-hover:text-primary-color duration-500"
             >
               Offers
             </Link>

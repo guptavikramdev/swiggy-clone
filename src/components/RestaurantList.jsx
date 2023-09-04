@@ -8,6 +8,7 @@ const RestaurantList = ({ resList }) => {
       <div className="lg:grid lg:grid-cols-4 lg:gap-8 grid grid-cols-1">
         {resList?.map((res) => {
           const resInfo = {
+            resId: res?.info?.id,
             resName: res?.info?.name,
             areaName: res?.info?.areaName,
             imgUrl: res?.info?.cloudinaryImageId,
