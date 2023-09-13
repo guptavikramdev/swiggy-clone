@@ -8,3 +8,4 @@ export { default as StarIcon } from "./StarIcon";
 export { default as Chevrondown } from "./Chevrondown";
 export { default as VegIcon } from "./VegIcon";
 export { default as NonVegIcon } from "./NonVegIcon";
+export { default as CartIcon } from "./CartIcon";

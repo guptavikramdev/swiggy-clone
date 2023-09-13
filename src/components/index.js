@@ -1,7 +1,8 @@
-export {default as Header} from './Header';
-export {default as BestOffers} from './BestOffers';
-export {default as FoodItems} from './FoodItems';
-export {default as BestBrand} from './BestBrand';
-export {default as RestaurantList} from './RestaurantList';
-export {default as Footer} from './Footer';
-export {default as Skeleton} from './Skeleton';
+export { default as Header } from "./Header";
+export { default as BestOffers } from "./BestOffers";
+export { default as FoodItems } from "./FoodItems";
+export { default as BestBrand } from "./BestBrand";
+export { default as RestaurantList } from "./RestaurantList";
+export { default as Footer } from "./Footer";
+export { default as Skeleton } from "./Skeleton";
+export { default as MenuList } from "./MenuList";

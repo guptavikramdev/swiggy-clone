@@ -39,7 +39,7 @@ const Home = () => {
         <BestOffers bestOffers={bestOffers} />
       )}
       {foodItems?.length == 0 ? (
-        <Skeleton size={9} w="w-40" h="h-40" rounded="rounded-full" />
+        <Skeleton size={8} w="w-40" h="h-40" rounded="rounded-full" />
       ) : (
         <FoodItems foodItems={foodItems} />
       )}

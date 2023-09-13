@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Chevrondown, VegIcon, NonVegIcon } from "../components/svgIcons";
-import { CLOUDINARY_URL } from "../utils/constant";
+import { Chevrondown, StarIcon } from "../components/svgIcons";
+import { MenuList } from "../components";
 const Menu = () => {
   const [restInfo, setRestInfo] = useState([]);
   const [menuInfo, setMenuInfo] = useState([]);
+  const [show, setShow] = useState(false);
   const param = useParams();
   const menu_url =
     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6083697&lng=77.293112&restaurantId=" +
@@ -17,7 +18,7 @@ const Menu = () => {
     const response = await fetch(menu_url);
     const ressults = await response.json();
     setRestInfo(ressults.data?.cards[0]?.card?.card.info);
-    console.log(ressults.data?.cards[1]?.card?.card);
+    console.log(ressults.data?.cards[0]?.card?.card.info);
     const menuData =
       ressults.data?.cards[2]?.groupedCard?.cardGroupMap.REGULAR.cards;
     const menuCategory = menuData?.filter(
@@ -25,55 +26,44 @@ const Menu = () => {
         item.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-    console.log(menuCategory);
     setMenuInfo(menuCategory);
   };
   return (
-    <div className="w-1/2 m-auto">
-      {menuInfo.map((menu) => {
+    <div className="lg:w-1/2 w-full  m-auto">
+      <div className="pt-10 pb-5 border-b border-dashed flex justify-between items-center">
+        <div className="flex flex-col">
+          <span className="text-lg font-semibold">{restInfo.name}</span>
+          <span className="mt-1 text-sm text-gray-500">
+            {restInfo?.cuisines?.join(",")}
+          </span>
+          <span className="text-sm text-gray-500">
+            {restInfo?.areaName},{restInfo?.sla?.lastMileTravelString}
+          </span>
+        </div>
+        <div className="p-2 border rounded-md flex flex-col justify-center items-start">
+          <div className="text-center gap-1  pb-2 text-[12px] border-b font-bold w-full text-[#3d9b6d]">
+            <span>{restInfo?.avgRatingString}</span>
+          </div>
+          <span className="text-center mt-2 font-bold text-gray-500 text-[10px] w-full">
+            {restInfo?.totalRatingsString}
+          </span>
+        </div>
+      </div>
+      {menuInfo?.map((menu) => {
         const { title, itemCards } = menu.card.card;
         return (
           <div
-            className="p-6 border-t-[16px] first:border-t-[8px] border-gray-200"
+            className="p-6 mt-5 border-t-[16px]  first:border-t-[2px] border-gray-200"
             key={title}
           >
-            <div className="text-lg py-4 font-semibold flex items-center justify-between cursor-pointer">
+            <div
+              className="text-lg py-4 font-semibold flex items-center justify-between cursor-pointer"
+              onClick={() => setShow(!show)}
+            >
               {title} ({itemCards.length})
               <Chevrondown />
             </div>
-            <div className="">
-              {itemCards.map((item) => {
-                console.log(item);
-                return (
-                  <div
-                    key={item.card?.info?.id}
-                    className="flex items-start  pb-8 justify-between mb-5 last:border-b-0 border-b-2 border-gray-200"
-                  >
-                    <div className="w-10/12">
-                      <span className="">
-                        {item.card?.info?.isVeg ? <VegIcon /> : <NonVegIcon />}
-                      </span>
-                      <div className="pt-2 text-md font-semibold">
-                        {item.card?.info?.name}
-                      </div>
-                      <div className="text-xs text-slate-500 mt-3 pr-2">
-                        <p>{item.card?.info?.description}</p>
-                      </div>
-                    </div>
-                    <div className="w-28 h-24 relative ">
-                      <img
-                        src={CLOUDINARY_URL + "/" + item?.card?.info?.imageId}
-                        alt=""
-                        className="w-full h-full  rounded-md"
-                      />
-                      <button className="absolute bottom-[-10] hover:shadow-lg hover:shadow-slate-300 transition-shadow duration-300 cursor-pointer font-semibold shadow-md text-secondary-color left-[50%] rounded-[5px] translate-x-[-50%] px-8 py-2 bg-white">
-                        Add
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <MenuList itemCards={itemCards} />
           </div>
         );
       })}
