@@ -30,32 +30,11 @@ const Menu = () => {
   };
   return (
     <div className="lg:w-1/2 w-full  m-auto">
-      <div className="pt-10 pb-5 border-b border-dashed flex justify-between items-center">
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">{restInfo.name}</span>
-          <span className="mt-1 text-sm text-gray-500">
-            {restInfo?.cuisines?.join(",")}
-          </span>
-          <span className="text-sm text-gray-500">
-            {restInfo?.areaName},{restInfo?.sla?.lastMileTravelString}
-          </span>
-        </div>
-        <div className="p-2 border rounded-md flex flex-col justify-center items-start">
-          <div className="text-center gap-1  pb-2 text-[12px] border-b font-bold w-full text-[#3d9b6d]">
-            <span>{restInfo?.avgRatingString}</span>
-          </div>
-          <span className="text-center mt-2 font-bold text-gray-500 text-[10px] w-full">
-            {restInfo?.totalRatingsString}
-          </span>
-        </div>
-      </div>
+    
       {menuInfo?.map((menu) => {
         const { title, itemCards } = menu.card.card;
         return (
-          <div
-            className="p-6 mt-5 border-t-[16px]  first:border-t-[2px] border-gray-200"
-            key={title}
-          >
+          <div className="p-6 mt-5 border-t-[16px] border-gray-200" key={title}>
             <div
               className="text-lg py-4 font-semibold flex items-center justify-between cursor-pointer"
               onClick={() => setShow(!show)}
@@ -63,7 +42,7 @@ const Menu = () => {
               {title} ({itemCards.length})
               <Chevrondown />
             </div>
-            <MenuList itemCards={itemCards} />
+            {show && <MenuList itemCards={itemCards} />}
           </div>
         );
       })}

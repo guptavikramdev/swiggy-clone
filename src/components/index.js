@@ -5,4 +5,4 @@ export { default as BestBrand } from "./BestBrand";
 export { default as RestaurantList } from "./RestaurantList";
 export { default as Footer } from "./Footer";
 export { default as Skeleton } from "./Skeleton";
-export { default as MenuList } from "./MenuList";
+export { default as MenuList } from "./menu/MenuList";

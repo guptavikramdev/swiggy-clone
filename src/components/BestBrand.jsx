@@ -8,6 +8,7 @@ const BestBrand = ({ bestBrands }) => {
       <Carousel slides={4.7} title="Top restaurant">
         {bestBrands?.map((brands) => {
           const resInfo = {
+            resId: brands?.info?.id,
             resName: brands?.info?.name,
             areaName: brands?.info?.areaName,
             imgUrl: brands?.info?.cloudinaryImageId,

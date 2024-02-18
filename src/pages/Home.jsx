@@ -20,6 +20,7 @@ const Home = () => {
   const fetchData = async () => {
     const response = await fetch(API_BASE_URL);
     const ressults = await response.json();
+    console.log(ressults);
     setBestOffers(ressults?.data?.cards[0]?.card?.card?.imageGridCards?.info);
     setFoodItems(ressults?.data?.cards[1]?.card?.card?.imageGridCards?.info);
     setBestBrands(

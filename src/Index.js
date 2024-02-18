@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { Home, Help, Offers, Search, Error, Menu } from "./pages";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import store from "./store";
+import { Provider } from "react-redux";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,4 +36,8 @@ const router = createBrowserRouter([
 ]);
 
 let root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} />);
+root.render(
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
+);
